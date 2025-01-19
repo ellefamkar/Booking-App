@@ -1,6 +1,7 @@
 import { MdLocationOn } from "react-icons/md";
 import { HiCalendar, HiMinus, HiPlus, HiSearch } from "react-icons/hi";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 function Header() {
   const [destination, setDestination] = useState("");
@@ -11,6 +12,7 @@ function Header() {
     room: 1,
   });
 
+  // name = adult, operation = inc
   const handleOptions = (name, operation) => {
     setOptions((prev) => {
       return {
@@ -43,11 +45,15 @@ function Header() {
         </div>
         <div className="headerSearchItem">
           <div id="optionDropDown" onClick={() => setOpenOptions(!openOptions)}>
-            {options.adult} adult &bull; {options.children} children &bull;{" "}
+            {options.adult} adult &bull; {options.children} children &bull;
             {options.room} room
           </div>
           {openOptions && (
-            <GuestOptionsList handleOptions={handleOptions} option={options} />
+            <GuestOptionsList
+              setOpenOptions={setOpenOptions}
+              handleOptions={handleOptions}
+              option={options}
+            />
           )}
           <span className="seperator"></span>
         </div>
@@ -63,9 +69,12 @@ function Header() {
 
 export default Header;
 
-export function GuestOptionsList({ option, handleOptions }) {
+export function GuestOptionsList({ option, handleOptions, setOpenOptions }) {
+  const optionsRef = useRef();
+  useOutsideClick(optionsRef, "optionDropDown", () => setOpenOptions(false));
+
   return (
-    <div className="guestOptions">
+    <div className="guestOptions" ref={optionsRef}>
       {/* option.map(() => {
             return <OptionItem type={option.name} option={option} minLimit={1} />
         }) */}
@@ -92,6 +101,7 @@ export function GuestOptionsList({ option, handleOptions }) {
 }
 
 function OptionItem({ type, option, minLimit, handleOptions }) {
+  // type = adult , option = all the obj , minLimit
   return (
     <div className="guestOptionItem">
       <span className="optionText">{type}</span>
