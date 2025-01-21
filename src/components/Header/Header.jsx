@@ -6,11 +6,15 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
-import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 function Header() {
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const [destination, setDestination] = useState(
     searchParams.get("destination") || ""
   );
@@ -54,15 +58,13 @@ function Header() {
     const encodedParams = createSearchParams({
       date: JSON.stringify(date),
       destination,
-      options : JSON.stringify(options)
+      options: JSON.stringify(options),
     });
 
-    console.log(encodedParams);
-
     navigate({
-      pathname:"/hotels",
-      search: encodedParams.toString()
-    })
+      pathname: "/hotels",
+      search: encodedParams.toString(),
+    });
   };
 
   // const dateRef = useRef();

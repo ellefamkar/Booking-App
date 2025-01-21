@@ -1,4 +1,5 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom";
+import Map from "../Map/Map";
 
 function AppLayout() {
   return (
@@ -6,9 +7,9 @@ function AppLayout() {
       <div className="sidebar">
         <Outlet />
       </div>
-      <div className="mapContainer"></div>
+      <Map />
     </div>
-  )
+  );
 }
 
-export default AppLayout
+export default AppLayout;
