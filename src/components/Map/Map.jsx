@@ -1,13 +1,20 @@
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
-import { useHotels } from "../context/HotelsProvider";
-import Loader from "../Loader/Loader";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMap,
+  useMapEvent,
+} from "react-leaflet";
+// import { useHotels } from "../context/HotelsProvider";
+// import Loader from "../Loader/Loader";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import useGeoLocation from "../../hooks/useGeoLocation";
 
-function Map() {
-  const { isLoading, hotels } = useHotels();
-  const [mapCenter, setMapCenter] = useState([16, -3]);
+function Map({markerLocations}) {
+  // const { isLoading, hotels } = useHotels();
+  const [mapCenter, setMapCenter] = useState([20, 4]);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const lat = searchParams.get("lat");
@@ -30,7 +37,7 @@ function Map() {
       setMapCenter([geoLocationPosition.lat, geoLocationPosition.lng]);
   }, [geoLocationPosition]);
 
-  if (isLoading) return <Loader />;
+  // if (isLoading) return <Loader />;
 
   //   to show hotels on map we use React Leaflet maps
   return (
@@ -48,8 +55,9 @@ function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
+        <DetectClick />
         <ChangeCenter position={mapCenter} />
-        {hotels.map((item) => (
+        {markerLocations.map((item) => (
           <Marker key={item.id} position={[item.latitude, item.longitude]}>
             <Popup>{item.host_location}</Popup>
           </Marker>
@@ -64,5 +72,15 @@ export default Map;
 function ChangeCenter({ position }) {
   const map = useMap();
   map.setView(position);
+  return null;
+}
+
+// click event on map 
+
+function DetectClick() {
+  const navigate = useNavigate();
+  useMapEvent({
+    click: (e) => navigate(`/bookmark?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+  });
   return null;
 }
