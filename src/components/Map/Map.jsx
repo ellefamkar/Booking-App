@@ -7,7 +7,7 @@ import useGeoLocation from "../../hooks/useGeoLocation";
 
 function Map() {
   const { isLoading, hotels } = useHotels();
-  const [mapCenter, setMapCenter] = useState([15, -3]);
+  const [mapCenter, setMapCenter] = useState([16, -3]);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const lat = searchParams.get("lat");
@@ -38,7 +38,7 @@ function Map() {
       <MapContainer
         className="map"
         center={mapCenter}
-        zoom={10}
+        zoom={9}
         scrollWheelZoom={true}
       >
         <button onClick={getPosition} className="getLocation">
