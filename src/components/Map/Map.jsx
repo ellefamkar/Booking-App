@@ -9,16 +9,14 @@ import {
 // import { useHotels } from "../context/HotelsProvider";
 // import Loader from "../Loader/Loader";
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useGeoLocation from "../../hooks/useGeoLocation";
+import useUrlParams from "../../hooks/useUrlParams";
 
-function Map({markerLocations}) {
+function Map({ markerLocations }) {
   // const { isLoading, hotels } = useHotels();
   const [mapCenter, setMapCenter] = useState([20, 4]);
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  const [lat, lng] = useUrlParams();
 
   const {
     isLoading: isLoadingPosition,
@@ -75,12 +73,13 @@ function ChangeCenter({ position }) {
   return null;
 }
 
-// click event on map 
+// click event on map
 
 function DetectClick() {
   const navigate = useNavigate();
   useMapEvent({
-    click: (e) => navigate(`/bookmark/add?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+    click: (e) =>
+      navigate(`/bookmark/add?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
   });
   return null;
 }
