@@ -21,6 +21,7 @@ function BookmarkProvider({ children }) {
   async function getBookmark(id) {
     try {
       setIsLoadingCurrentBookmark(true);
+      setCurrentBookmark(null);
       const { data } = await axios.get(`${BASE_URL}/bookmarks/${id}`);
       setCurrentBookmark(data);
       setIsLoadingCurrentBookmark(false);
