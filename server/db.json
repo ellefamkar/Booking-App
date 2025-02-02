@@ -1334,15 +1334,6 @@
       "id": 1
     },
     {
-      "cityName": "A Dakhla Oasis",
-      "country": "Egypt",
-      "countryCode": "EG",
-      "latitude": "25.02090651422749",
-      "longitude": "29.09059588509316",
-      "host_location": "A Dakhla Oasis Egypt",
-      "id": 7
-    },
-    {
       "cityName": "Australia/Sydney",
       "country": "Australia",
       "countryCode": "AU",
@@ -1350,6 +1341,24 @@
       "longitude": "151.34765625000003",
       "host_location": "Australia/Sydney Australia",
       "id": 9
+    },
+    {
+      "cityName": "Gannan Zangzu Zizhizhou",
+      "country": "China",
+      "countryCode": "CN",
+      "latitude": "35.288226682029574",
+      "longitude": "102.61230468750001",
+      "host_location": "Gannan Zangzu Zizhizhou China",
+      "id": 10
+    },
+    {
+      "cityName": "Arac",
+      "country": "Turkiye",
+      "countryCode": "TR",
+      "latitude": "41.28090255982091",
+      "longitude": "33.02490234375001",
+      "host_location": "Arac Turkiye",
+      "id": 11
     }
   ]
 }
