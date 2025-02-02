@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../Loader/Loader";
 import ReactCountryFlag from "react-country-flag";
+import { useBookmark } from "../context/BookmarkProvider";
 
 const BASE_GEOCODING_URL = "https://api-bdc.net/data/reverse-geocode-client";
 
@@ -25,6 +26,8 @@ function AddNewBookmark() {
   const [countryCode, setCountryCode] = useState("");
   const [isLoadingGeoCoding, setIsLoadingGeoCoding] = useState(false);
   const [geoCodingError, setGeoCodingError] = useState(null);
+
+  const { createBookmark } = useBookmark();
 
   useEffect(() => {
     if (!lat || !lng) return;
@@ -53,14 +56,28 @@ function AddNewBookmark() {
     fetchLocationData();
   }, [lat, lng]);
 
-  if (isLoadingGeoCoding) return <Loader />;
-  if (geoCodingError) return <strong>{geoCodingError}</strong>;
-
   // form => cityName, CountQueuingStrategy
   // lat and lng => url => fetch api based on lat and lng => get location DAta
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!cityName || !countryName) return;
+
+    const newBookmark = {
+      cityName,
+      country: countryName,
+      countryCode,
+      latitude: lat,
+      longitude: lng,
+      host_location: cityName + " " + countryName,
+    };
+    await createBookmark(newBookmark);
+    navigate("/bookmark")
   };
+
+  if (isLoadingGeoCoding) return <Loader />;
+  if (geoCodingError) return <strong>{geoCodingError}</strong>;
 
   return (
     <div>
