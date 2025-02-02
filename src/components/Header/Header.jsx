@@ -8,6 +8,7 @@ import { DateRange } from "react-date-range";
 import { format } from "date-fns";
 import {
   createSearchParams,
+  Link,
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
@@ -130,6 +131,10 @@ function Header() {
             <HiSearch className="headerIcon" />
           </button>
         </div>
+      </div>
+      <div>
+        <Link to="/bookmark">BookMarks</Link>
+        <Link to="/login">Login</Link>
       </div>
     </div>
   );
