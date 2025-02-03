@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthProvider";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login, isAuthenticated } = useAuth();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email && password) login(email, password);
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) navigate("/", { replace: true });
+  }, [isAuthenticated, navigate]);
 
   return (
     <div className="loginContainer">
       <h2>Login</h2>
-      <form action="" className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <div className="formControl">
           <label htmlFor="email">Email</label>
           <input

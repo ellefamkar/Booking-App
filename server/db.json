@@ -1325,15 +1325,6 @@
   ],
   "bookmarks": [
     {
-      "cityName": "Australia/Sydney",
-      "country": "Australia",
-      "countryCode": "AU",
-      "latitude": "-34.0754124384174",
-      "longitude": "151.34765625000003",
-      "host_location": "Australia/Sydney Australia",
-      "id": 9
-    },
-    {
       "cityName": "Gannan Zangzu Zizhizhou",
       "country": "China",
       "countryCode": "CN",
@@ -1343,15 +1334,6 @@
       "id": 10
     },
     {
-      "cityName": "Arac",
-      "country": "Turkiye",
-      "countryCode": "TR",
-      "latitude": "41.28090255982091",
-      "longitude": "33.02490234375001",
-      "host_location": "Arac Turkiye",
-      "id": 11
-    },
-    {
       "cityName": "Lisa",
       "country": "Romania",
       "countryCode": "RO",
@@ -1359,6 +1341,15 @@
       "longitude": "24.873046875000004",
       "host_location": "Lisa Romania",
       "id": 12
+    },
+    {
+      "cityName": "Sydney",
+      "country": "Australia",
+      "countryCode": "AU",
+      "latitude": "-33.84988869610124",
+      "longitude": "151.16821405393804",
+      "host_location": "Sydney Australia",
+      "id": 13
     }
   ]
 }
