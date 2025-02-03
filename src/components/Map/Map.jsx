@@ -15,7 +15,7 @@ import useUrlParams from "../../hooks/useUrlParams";
 
 function Map({ markerLocations }) {
   // const { isLoading, hotels } = useHotels();
-  const [mapCenter, setMapCenter] = useState([20, 4]);
+  const [mapCenter, setMapCenter] = useState([52, 4]);
   const [lat, lng] = useUrlParams();
 
   const {

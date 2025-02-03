@@ -80,7 +80,9 @@ function Header() {
 
   return (
     <div className="header">
-      <NavLink to="/bookmark">BookMarks</NavLink>
+      <NavLink to="/bookmark">
+        <span style={{ fontWeight: "bold" }}>BookMarks</span>
+      </NavLink>
 
       <div className="headerSearch">
         <div className="headerSearchItem">
@@ -219,13 +221,15 @@ function User() {
     <div>
       {isAuthenticated ? (
         <div>
-          <span>{user.name}</span>
+          <span style={{marginRight: "0.5rem"}}>{user.name}</span>
           <button onClick={handleLogout}>
-            <HiLogout className="icon" />
+            <HiLogout className="icon" style={{color: "red"}} />
           </button>
         </div>
       ) : (
-        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/login">
+          <span style={{ fontWeight: "bold" }}>Login</span>
+        </NavLink>
       )}
     </div>
   );

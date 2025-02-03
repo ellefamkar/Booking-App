@@ -1325,15 +1325,6 @@
   ],
   "bookmarks": [
     {
-      "cityName": "Gannan Zangzu Zizhizhou",
-      "country": "China",
-      "countryCode": "CN",
-      "latitude": "35.288226682029574",
-      "longitude": "102.61230468750001",
-      "host_location": "Gannan Zangzu Zizhizhou China",
-      "id": 10
-    },
-    {
       "cityName": "Lisa",
       "country": "Romania",
       "countryCode": "RO",
@@ -1350,6 +1341,15 @@
       "longitude": "151.16821405393804",
       "host_location": "Sydney Australia",
       "id": 13
+    },
+    {
+      "cityName": "Gayny",
+      "country": "Russian Federation (the)",
+      "countryCode": "RU",
+      "latitude": "60.378575303227215",
+      "longitude": "53.21777343750001",
+      "host_location": "Gayny Russian Federation (the)",
+      "id": 15
     }
   ]
 }

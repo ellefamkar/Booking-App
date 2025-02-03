@@ -15,6 +15,7 @@ import AddNewBookmark from "./components/AddNewBookmark/AddNewBookmark";
 import Login from "./components/Login/Login";
 import AuthProvider from "./components/context/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             </Route>
             <Route path="/login" element={<Login />} />
           </Routes>
+          <Footer />
         </HotelsProvider>
       </BookmarkProvider>
     </AuthProvider>
