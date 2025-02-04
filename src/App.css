@@ -104,7 +104,22 @@
 
 .dateDropDown {
   margin-left: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.rdrCalendarWrapper {
+  box-shadow: 0 0 10px #efefef;
+  border-radius: 1rem;
+  padding: 0.3rem;
+  border: 1px solid var(--text-100);
+}
+
+.rdrDateDisplayWrapper {
+  border-radius: 10px;
+}
+
+.date{
+  top: 33px;
 }
 
 .headerSearchBtn {

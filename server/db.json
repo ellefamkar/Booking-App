@@ -1350,6 +1350,15 @@
       "longitude": "53.21777343750001",
       "host_location": "Gayny Russian Federation (the)",
       "id": 15
+    },
+    {
+      "cityName": "Sinca Veche",
+      "country": "Romania",
+      "countryCode": "RO",
+      "latitude": "45.781292059224036",
+      "longitude": "25.18478393554688",
+      "host_location": "Sinca Veche Romania",
+      "id": 16
     }
   ]
 }
